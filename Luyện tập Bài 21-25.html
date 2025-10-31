@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉语教程复习 - 第21-25课</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbc;
+            --accent-color: #ff7e5f;
+            --light-color: #f5f7fa;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --error-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .lesson-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .lesson-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lesson-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .lesson-btn.active {
+            background-color: var(--accent-color);
+        }
+        
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .section-btn {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            border: 2px solid var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .section-btn:hover {
+            background-color: #e6e9f0;
+        }
+        
+        .section-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .vocabulary-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        @media (min-width: 576px) {
+            .vocabulary-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .vocabulary-list {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        .vocab-item {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .vocab-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chinese-word {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .pinyin {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .vietnamese {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .example {
+            color: #666;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 8px;
+        }
+        
+        .audio-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .audio-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .game-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .game-mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .mode-btn {
+            background-color: var(--light-color);
+            border: 2px solid var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mode-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .question-container {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            min-height: 60px;
+        }
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 576px) {
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .option-btn {
+            background-color: var(--light-color);
+            border: 2px solid var(--secondary-color);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .option-btn:hover {
+            background-color: #e6e9f0;
+        }
+        
+        .option-btn.correct {
+            background-color: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+        }
+        
+        .option-btn.incorrect {
+            background-color: var(--error-color);
+            color: white;
+            border-color: var(--error-color);
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .score {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .next-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .next-btn:hover {
+            background-color: #ff6b4a;
+        }
+        
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+        }
+        
+        .voice-select, .speed-control, .pitch-control {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        select, input[type="range"] {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .error-words-section {
+            margin-top: 30px;
+        }
+        
+        .error-words-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .error-word-item {
+            background-color: #ffeaea;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .clear-errors-btn {
+            background-color: var(--error-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        .home-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>汉语教程复习</h1>
+            <p class="subtitle">第21-25课 - 中文越南语双语学习</p>
+        </header>
+        
+        <div class="lesson-nav">
+            <button class="lesson-btn active" data-lesson="21">第21课</button>
+            <button class="lesson-btn" data-lesson="22">第22课</button>
+            <button class="lesson-btn" data-lesson="23">第23课</button>
+            <button class="lesson-btn" data-lesson="24">第24课</button>
+            <button class="lesson-btn" data-lesson="25">第25课</button>
+        </div>
+        
+        <div class="section-nav">
+            <button class="section-btn active" data-section="vocabulary">词汇学习</button>
+            <button class="section-btn" data-section="practice">词汇练习</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="section vocabulary-section" id="vocabulary-section">
+                <h2 class="section-title">词汇</h2>
+                <div class="vocabulary-list" id="vocabulary-list">
+                    <!-- 词汇内容将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="section practice-section hidden" id="practice-section">
+                <h2 class="section-title">词汇练习</h2>
+                <div class="game-container">
+                    <h3 class="game-title" id="game-title">词汇练习</h3>
+                    
+                    <div class="game-mode-selector">
+                        <button class="mode-btn active" data-mode="cn-to-vn">汉译越</button>
+                        <button class="mode-btn" data-mode="vn-to-cn">越译汉</button>
+                    </div>
+                    
+                    <div class="question-container" id="question-container">
+                        <!-- 问题将通过JavaScript动态生成 -->
+                    </div>
+                    
+                    <div class="options-container" id="options-container">
+                        <!-- 选项将通过JavaScript动态生成 -->
+                    </div>
+                    
+                    <div class="game-controls">
+                        <div class="score">得分: <span id="score">0</span></div>
+                        <button class="next-btn" id="next-btn">下一题</button>
+                    </div>
+                </div>
+                
+                <div class="audio-controls">
+                    <div class="voice-select">
+                        <label for="voice-select">语音选择:</label>
+                        <select id="voice-select">
+                            <!-- 语音选项将通过JavaScript动态生成 -->
+                        </select>
+                    </div>
+                    
+                    <div class="speed-control">
+                        <label for="speed-control">语速: <span id="speed-value">1.0</span></label>
+                        <input type="range" id="speed-control" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+                    
+                    <div class="pitch-control">
+                        <label for="pitch-control">音调: <span id="pitch-value">1.0</span></label>
+                        <input type="range" id="pitch-control" min="0.5" max="2" step="0.1" value="1">
+                    </div>
+                </div>
+                
+                <div class="error-words-section">
+                    <h3 class="section-title">错题本</h3>
+                    <div class="error-words-list" id="error-words-list">
+                        <!-- 错题内容将通过JavaScript动态生成 -->
+                    </div>
+                    <button class="clear-errors-btn" id="clear-errors-btn">清空错题本</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 汉语教程复习网站 - 专为HSK1-HSK2级别学习者设计</p>
+        </footer>
+        
+        <button class="home-btn" id="home-btn">首页</button>
+    </div>
+
+    <script>
+        // 课程数据
+        const lessonData = {
+            21: {
+                vocabulary: [
+                    { chinese: "每", pinyin: "měi", vietnamese: "mỗi", example: "我每天都去图书馆。" },
+                    { chinese: "早上", pinyin: "zǎoshang", vietnamese: "buổi sáng", example: "我早上六点半起床。" },
+                    { chinese: "半", pinyin: "bàn", vietnamese: "một nửa", example: "现在是七点半。" },
+                    { chinese: "起床", pinyin: "qǐ chuáng", vietnamese: "thức dậy", example: "他每天六点起床。" },
+                    { chinese: "早饭", pinyin: "zǎofàn", vietnamese: "bữa sáng", example: "我七点吃早饭。" },
+                    { chinese: "午饭", pinyin: "wǔfàn", vietnamese: "bữa trưa", example: "中午我去食堂吃午饭。" },
+                    { chinese: "晚饭", pinyin: "wǎnfàn", vietnamese: "bữa tối", example: "六点半或者七点吃晚饭。" },
+                    { chinese: "以后", pinyin: "yǐhòu", vietnamese: "sau đó", example: "午饭以后我去朋友那儿聊天儿。" },
+                    { chinese: "差", pinyin: "chà", vietnamese: "thiếu", example: "差十分八点。" },
+                    { chinese: "分", pinyin: "fēn", vietnamese: "phút", example: "现在是八点十分。" },
+                    { chinese: "上课", pinyin: "shàng kè", vietnamese: "lên lớp", example: "我们八点上课。" },
+                    { chinese: "节", pinyin: "jié", vietnamese: "tiết học", example: "上午有四节课。" },
+                    { chinese: "教室", pinyin: "jiàoshì", vietnamese: "lớp học", example: "差十分八点去教室。" },
+                    { chinese: "操场", pinyin: "cāochǎng", vietnamese: "sân vận động", example: "四点我去操场锻炼身体。" },
+                    { chinese: "锻炼", pinyin: "duànliàn", vietnamese: "tập luyện", example: "每天锻炼身体。" },
+                    { chinese: "洗澡", pinyin: "xǐ zǎo", vietnamese: "tắm", example: "五点回宿舍洗澡。" },
+                    { chinese: "洗", pinyin: "xǐ", vietnamese: "rửa", example: "洗衣服。" },
+                    { chinese: "然后", pinyin: "ránhòu", vietnamese: "sau đó", example: "然后看看电视。" },
+                    { chinese: "睡觉", pinyin: "shuì jiào", vietnamese: "ngủ", example: "十一点睡觉。" },
+                    { chinese: "爬", pinyin: "pá", vietnamese: "leo", example: "明天我们去爬山。" },
+                    { chinese: "们", pinyin: "men", vietnamese: "(hậu tố số nhiều)", example: "同学们，明天我们去爬山。" },
+                    { chinese: "山", pinyin: "shān", vietnamese: "núi", example: "我喜欢爬山。" },
+                    { chinese: "年级", pinyin: "niánjí", vietnamese: "khối lớp", example: "一年级的老师和学生都去。" },
+                    { chinese: "出发", pinyin: "chūfā", vietnamese: "xuất phát", example: "明天早上七点一刻出发。" },
+                    { chinese: "前", pinyin: "qián", vietnamese: "trước", example: "在楼前集合。" },
+                    { chinese: "集合", pinyin: "jíhé", vietnamese: "tập hợp", example: "七点在楼前集合上车。" },
+                    { chinese: "刻", pinyin: "kè", vietnamese: "khắc (15 phút)", example: "七点一刻准时出发。" },
+                    { chinese: "准时", pinyin: "zhǔnshí", vietnamese: "đúng giờ", example: "准时出发。" },
+                    { chinese: "带", pinyin: "dài", vietnamese: "mang theo", example: "要带午饭。" },
+                    // 补充词汇
+                    { chinese: "课间", pinyin: "kèjiān", vietnamese: "giờ giải lao", example: "课间休息十分钟。" },
+                    { chinese: "上班", pinyin: "shàng bān", vietnamese: "đi làm", example: "我爸爸每天八点上班。" },
+                    { chinese: "下班", pinyin: "xià bān", vietnamese: "tan làm", example: "妈妈五点下班。" }
+                ]
+            },
+            22: {
+                vocabulary: [
+                    { chinese: "叫", pinyin: "jiào", vietnamese: "gọi", example: "老师叫同学们回答问题。" },
+                    { chinese: "让", pinyin: "ràng", vietnamese: "để cho", example: "让我先说吧。" },
+                    { chinese: "大家", pinyin: "dàjiā", vietnamese: "mọi người", example: "今天想请大家谈谈自己的爱好。" },
+                    { chinese: "谈", pinyin: "tán", vietnamese: "nói chuyện", example: "我们谈谈自己的爱好吧。" },
+                    { chinese: "自己", pinyin: "zìjǐ", vietnamese: "bản thân", example: "这是你自己的事情。" },
+                    { chinese: "爱好", pinyin: "àihào", vietnamese: "sở thích", example: "我的爱好是看京剧。" },
+                    { chinese: "京剧", pinyin: "jīngjù", vietnamese: "Kinh kịch", example: "我非常喜欢看京剧。" },
+                    { chinese: "喜欢", pinyin: "xǐhuan", vietnamese: "thích", example: "你喜欢看京剧吗？" },
+                    { chinese: "非常", pinyin: "fēicháng", vietnamese: "rất", example: "我非常喜欢中国菜。" },
+                    { chinese: "唱", pinyin: "chàng", vietnamese: "hát", example: "我想学唱京剧。" },
+                    { chinese: "玩", pinyin: "wán", vietnamese: "chơi", example: "我喜欢玩电脑。" },
+                    { chinese: "电脑", pinyin: "diànnǎo", vietnamese: "máy tính", example: "我有一台笔记本电脑。" },
+                    { chinese: "下课", pinyin: "xià kè", vietnamese: "tan học", example: "下课以后听听音乐。" },
+                    { chinese: "感到", pinyin: "gǎndào", vietnamese: "cảm thấy", example: "感到心情很愉快。" },
+                    { chinese: "心情", pinyin: "xīnqíng", vietnamese: "tâm trạng", example: "今天心情很好。" },
+                    { chinese: "愉快", pinyin: "yúkuài", vietnamese: "vui vẻ", example: "祝你旅途愉快。" },
+                    { chinese: "业余", pinyin: "yèyú", vietnamese: "ngoài giờ", example: "业余时间你常常做什么？" },
+                    { chinese: "以前", pinyin: "yǐqián", vietnamese: "trước đây", example: "我来中国以前就对书法感兴趣。" },
+                    { chinese: "就", pinyin: "jiù", vietnamese: "đã", example: "我以前就喜欢中国书法。" },
+                    { chinese: "对", pinyin: "duì", vietnamese: "đối với", example: "我对书法感兴趣。" },
+                    { chinese: "书法", pinyin: "shūfǎ", vietnamese: "thư pháp", example: "学习书法很有意思。" },
+                    { chinese: "特别", pinyin: "tèbié", vietnamese: "đặc biệt", example: "我特别喜欢中国书法。" },
+                    { chinese: "感兴趣", pinyin: "gǎn xìngqù", vietnamese: "cảm thấy hứng thú", example: "我对书法很感兴趣。" },
+                    { chinese: "兴趣", pinyin: "xìngqù", vietnamese: "hứng thú", example: "我对中国画很有兴趣。" },
+                    { chinese: "派", pinyin: "pài", vietnamese: "cử", example: "公司派我来中国。" },
+                    { chinese: "高兴", pinyin: "gāoxìng", vietnamese: "vui mừng", example: "我非常高兴。" },
+                    { chinese: "画", pinyin: "huà", vietnamese: "vẽ", example: "我学画中国画儿。" },
+                    { chinese: "画儿", pinyin: "huàr", vietnamese: "bức tranh", example: "这张画儿很漂亮。" },
+                    // 补充词汇
+                    { chinese: "太极拳", pinyin: "tàijíquán", vietnamese: "Thái Cực Quyền", example: "我想学太极拳。" },
+                    { chinese: "足球", pinyin: "zúqiú", vietnamese: "bóng đá", example: "我喜欢看足球比赛。" },
+                    { chinese: "比赛", pinyin: "bǐsài", vietnamese: "thi đấu", example: "今天有足球比赛。" },
+                    { chinese: "网球", pinyin: "wǎngqiú", vietnamese: "quần vợt", example: "他喜欢打网球。" },
+                    { chinese: "武术", pinyin: "wǔshù", vietnamese: "võ thuật", example: "中国武术很有名。" },
+                    { chinese: "惊讶", pinyin: "jīngyà", vietnamese: "ngạc nhiên", example: "老师感到很惊讶。" },
+                    { chinese: "老外", pinyin: "lǎowài", vietnamese: "người nước ngoài", example: "我这个'老外'喜欢看京剧。" },
+                    { chinese: "笔记本", pinyin: "bǐjìběn", vietnamese: "sổ tay", example: "他有一个笔记本电脑。" },
+                    { chinese: "希望", pinyin: "xīwàng", vietnamese: "hy vọng", example: "我希望以后能参加演出。" },
+                    { chinese: "演出", pinyin: "yǎnchū", vietnamese: "biểu diễn", example: "今晚有京剧演出。" }
+                ]
+            },
+            23: {
+                vocabulary: [
+                    { chinese: "边", pinyin: "biān", vietnamese: "bên", example: "学校里边有邮局。" },
+                    { chinese: "东边", pinyin: "dōngbian", vietnamese: "phía đông", example: "邮局在图书馆东边。" },
+                    { chinese: "西边", pinyin: "xībian", vietnamese: "phía tây", example: "图书馆西边是邮局。" },
+                    { chinese: "南边", pinyin: "nánbian", vietnamese: "phía nam", example: "我家在学校南边。" },
+                    { chinese: "北边", pinyin: "běibian", vietnamese: "phía bắc", example: "商店在学校北边。" },
+                    { chinese: "前边", pinyin: "qiánbian", vietnamese: "phía trước", example: "教学楼前边是操场。" },
+                    { chinese: "后边", pinyin: "hòubian", vietnamese: "phía sau", example: "图书馆后边是宿舍。" },
+                    { chinese: "左边", pinyin: "zuǒbian", vietnamese: "bên trái", example: "邮局在银行左边。" },
+                    { chinese: "右边", pinyin: "yòubian", vietnamese: "bên phải", example: "书店在邮局右边。" },
+                    { chinese: "里边", pinyin: "lǐbian", vietnamese: "bên trong", example: "学校里边有邮局。" },
+                    { chinese: "外边", pinyin: "wàibian", vietnamese: "bên ngoài", example: "学校外边有很多商店。" },
+                    { chinese: "上边", pinyin: "shàngbian", vietnamese: "bên trên", example: "桌子上边有书。" },
+                    { chinese: "下边", pinyin: "xiàbian", vietnamese: "bên dưới", example: "椅子下边有书包。" },
+                    { chinese: "离", pinyin: "lí", vietnamese: "cách", example: "邮局离这儿远吗？" },
+                    { chinese: "远", pinyin: "yuǎn", vietnamese: "xa", example: "不远，很近。" },
+                    { chinese: "近", pinyin: "jìn", vietnamese: "gần", example: "我家离学校很近。" },
+                    { chinese: "地方", pinyin: "dìfang", vietnamese: "nơi chốn", example: "图书馆东边是什么地方？" },
+                    { chinese: "足球场", pinyin: "zúqiúchǎng", vietnamese: "sân bóng đá", example: "图书馆东边是一个足球场。" },
+                    { chinese: "劳驾", pinyin: "láojià", vietnamese: "xin lỗi", example: "劳驾，我打听一下儿。" },
+                    { chinese: "打听", pinyin: "dǎtìng", vietnamese: "hỏi thăm", example: "我打听一下儿，博物馆在哪儿？" },
+                    { chinese: "博物馆", pinyin: "bówùguǎn", vietnamese: "bảo tàng", example: "博物馆在东边。" },
+                    { chinese: "和平", pinyin: "hépíng", vietnamese: "hòa bình", example: "在和平公园和人民广场中间。" },
+                    { chinese: "广场", pinyin: "guǎngchǎng", vietnamese: "quảng trường", example: "天安门广场很大。" },
+                    { chinese: "中间", pinyin: "zhōngjiān", vietnamese: "ở giữa", example: "在和平公园和人民广场中间。" },
+                    { chinese: "从", pinyin: "cóng", vietnamese: "từ", example: "从这儿到那儿大概有七八百米。" },
+                    { chinese: "到", pinyin: "dào", vietnamese: "đến", example: "从这儿到博物馆有多远？" },
+                    { chinese: "米", pinyin: "mǐ", vietnamese: "mét", example: "大概有七八百米。" },
+                    { chinese: "一直", pinyin: "yīzhí", vietnamese: "thẳng", example: "你从这儿一直往东走。" },
+                    { chinese: "红绿灯", pinyin: "hónglǜdēng", vietnamese: "đèn giao thông", example: "到红绿灯那儿往左拐。" },
+                    { chinese: "绿", pinyin: "lǜ", vietnamese: "màu xanh lá", example: "红灯停，绿灯行。" },
+                    { chinese: "灯", pinyin: "dēng", vietnamese: "đèn", example: "房间里有一盏灯。" },
+                    { chinese: "往", pinyin: "wǎng", vietnamese: "hướng về", example: "往左拐。" },
+                    { chinese: "左", pinyin: "zuǒ", vietnamese: "bên trái", example: "往左拐。" },
+                    { chinese: "右", pinyin: "yòu", vietnamese: "bên phải", example: "往右拐。" },
+                    { chinese: "拐", pinyin: "guǎi", vietnamese: "rẽ", example: "到红绿灯那儿往左拐。" },
+                    { chinese: "马路", pinyin: "mǎlù", vietnamese: "đường phố", example: "马路东边有一座白色的大楼。" },
+                    { chinese: "路", pinyin: "lù", vietnamese: "con đường", example: "这条路很宽。" },
+                    { chinese: "座", pinyin: "zuò", vietnamese: "toà (lượng từ)", example: "一座白色的大楼。" },
+                    { chinese: "白色", pinyin: "báisè", vietnamese: "màu trắng", example: "白色的大楼。" },
+                    // 补充词汇
+                    { chinese: "平方米", pinyin: "píngfāngmǐ", vietnamese: "mét vuông", example: "这个房间有20平方米。" },
+                    { chinese: "迷路", pinyin: "mí lù", vietnamese: "lạc đường", example: "我迷路了。" },
+                    { chinese: "公共汽车", pinyin: "gōnggòng qìchē", vietnamese: "xe buýt", example: "我坐公共汽车去学校。" },
+                    { chinese: "出租车", pinyin: "chūzūchē", vietnamese: "taxi", example: "我们坐出租车去吧。" },
+                    { chinese: "司机", pinyin: "sījī", vietnamese: "tài xế", example: "出租车司机很友好。" },
+                    { chinese: "算了吧", pinyin: "suàn le ba", vietnamese: "thôi đi", example: "算了吧，才一块钱。" }
+                ]
+            },
+            24: {
+                vocabulary: [
+                    { chinese: "会", pinyin: "huì", vietnamese: "biết", example: "你会打太极拳吗？" },
+                    { chinese: "打", pinyin: "dǎ", vietnamese: "đánh", example: "我想学打太极拳。" },
+                    { chinese: "太极拳", pinyin: "tàijíquán", vietnamese: "Thái Cực Quyền", example: "太极拳是一种中国武术。" },
+                    { chinese: "听说", pinyin: "tīngshuō", vietnamese: "nghe nói", example: "听说体育老师下星期教太极拳。" },
+                    { chinese: "下", pinyin: "xià", vietnamese: "sau", example: "下星期我们开始学太极拳。" },
+                    { chinese: "报名", pinyin: "bào míng", vietnamese: "đăng ký", example: "我们去报名吧。" },
+                    { chinese: "开始", pinyin: "kāishǐ", vietnamese: "bắt đầu", example: "什么时候开始上课？" },
+                    { chinese: "能", pinyin: "néng", vietnamese: "có thể", example: "您能不能再说一遍？" },
+                    { chinese: "再", pinyin: "zài", vietnamese: "lại", example: "请您再说一遍。" },
+                    { chinese: "遍", pinyin: "biàn", vietnamese: "lần", example: "请您再说一遍。" },
+                    { chinese: "懂", pinyin: "dǒng", vietnamese: "hiểu", example: "我不懂'一三五'是什么意思。" },
+                    { chinese: "舒服", pinyin: "shūfu", vietnamese: "thoải mái", example: "她今天有点儿不舒服。" },
+                    { chinese: "意思", pinyin: "yìsi", vietnamese: "ý nghĩa", example: "这个词是什么意思？" },
+                    { chinese: "次", pinyin: "cì", vietnamese: "lần", example: "一次一个小时。" },
+                    { chinese: "小时", pinyin: "xiǎoshí", vietnamese: "giờ", example: "一次一个小时。" },
+                    { chinese: "请假", pinyin: "qǐng jià", vietnamese: "xin nghỉ", example: "玛丽让我给她请个假。" },
+                    { chinese: "头疼", pinyin: "tóu téng", vietnamese: "đau đầu", example: "她头疼，发烧。" },
+                    { chinese: "头", pinyin: "tóu", vietnamese: "đầu", example: "头疼。" },
+                    { chinese: "疼", pinyin: "téng", vietnamese: "đau", example: "肚子疼。" },
+                    { chinese: "发烧", pinyin: "fā shāo", vietnamese: "sốt", example: "她发烧了。" },
+                    { chinese: "可能", pinyin: "kěnéng", vietnamese: "có thể", example: "她可能感冒了。" },
+                    { chinese: "咳嗽", pinyin: "késou", vietnamese: "ho", example: "她咳嗽得很厉害。" },
+                    { chinese: "感冒", pinyin: "gǎnmào", vietnamese: "cảm lạnh", example: "她感冒了。" },
+                    { chinese: "了", pinyin: "le", vietnamese: "(trợ từ)", example: "她可能感冒了。" },
+                    { chinese: "看病", pinyin: "kàn bìng", vietnamese: "khám bệnh", example: "她要去医院看病。" },
+                    { chinese: "病", pinyin: "bìng", vietnamese: "bệnh", example: "她病了。" },
+                    // 补充词汇
+                    { chinese: "开车", pinyin: "kāi chē", vietnamese: "lái xe", example: "他会开车。" },
+                    { chinese: "游泳", pinyin: "yóu yǒng", vietnamese: "bơi", example: "夏天我喜欢游泳。" },
+                    { chinese: "钓鱼", pinyin: "diào yú", vietnamese: "câu cá", example: "我爸爸喜欢钓鱼。" },
+                    { chinese: "停车", pinyin: "tíng chē", vietnamese: "đỗ xe", example: "这儿不能停车。" },
+                    { chinese: "滑冰", pinyin: "huá bīng", vietnamese: "trượt băng", example: "冬天我们去滑冰。" },
+                    { chinese: "拍照", pinyin: "pāi zhào", vietnamese: "chụp ảnh", example: "这儿可以拍照吗？" },
+                    { chinese: "抽烟", pinyin: "chōu yān", vietnamese: "hút thuốc", example: "这儿不能抽烟。" },
+                    { chinese: "唱歌", pinyin: "chàng gē", vietnamese: "hát", example: "她喜欢唱歌。" },
+                    { chinese: "跳舞", pinyin: "tiào wǔ", vietnamese: "nhảy múa", example: "我们去跳舞吧。" },
+                    { chinese: "打篮球", pinyin: "dǎ lángiú", vietnamese: "chơi bóng rổ", example: "他喜欢打篮球。" },
+                    { chinese: "护照", pinyin: "hùzhào", vietnamese: "hộ chiếu", example: "这是我的护照。" },
+                    { chinese: "驾照", pinyin: "jiàzhào", vietnamese: "bằng lái xe", example: "他有驾照吗？" }
+                ]
+            },
+            25: {
+                vocabulary: [
+                    { chinese: "电视台", pinyin: "diànshìtái", vietnamese: "đài truyền hình", example: "电视台想请留学生表演节目。" },
+                    { chinese: "台", pinyin: "tái", vietnamese: "đài", example: "电视台。" },
+                    { chinese: "表演", pinyin: "biǎoyǎn", vietnamese: "biểu diễn", example: "你愿意去表演吗？" },
+                    { chinese: "节目", pinyin: "jiémù", vietnamese: "chương trình", example: "这是一个汉语节目。" },
+                    { chinese: "愿意", pinyin: "yuànyì", vietnamese: "sẵn lòng", example: "你愿意去吗？" },
+                    { chinese: "为什么", pinyin: "wèishénme", vietnamese: "tại sao", example: "你为什么不想去？" },
+                    { chinese: "得", pinyin: "de", vietnamese: "(trợ từ)", example: "她汉语说得很好。" },
+                    { chinese: "不错", pinyin: "búcuò", vietnamese: "không tệ", example: "你学得不错。" },
+                    { chinese: "错", pinyin: "cuò", vietnamese: "sai", example: "这个字写错了。" },
+                    { chinese: "进步", pinyin: "jìnbù", vietnamese: "tiến bộ", example: "你有很大进步。" },
+                    { chinese: "水平", pinyin: "shuǐpíng", vietnamese: "trình độ", example: "汉语水平提高得很快。" },
+                    { chinese: "提高", pinyin: "tígāo", vietnamese: "nâng cao", example: "我的汉语水平提高得很快。" },
+                    { chinese: "快", pinyin: "kuài", vietnamese: "nhanh", example: "他跑得很快。" },
+                    { chinese: "哪里", pinyin: "nǎlǐ", vietnamese: "đâu (khiêm tốn)", example: "哪里，我发音发得不准。" },
+                    { chinese: "准", pinyin: "zhǔn", vietnamese: "chuẩn", example: "发音发得不准。" },
+                    { chinese: "流利", pinyin: "liúlì", vietnamese: "trôi chảy", example: "她说汉语说得很流利。" },
+                    { chinese: "努力", pinyin: "nǔlì", vietnamese: "nỗ lực", example: "她非常努力。" },
+                    { chinese: "认真", pinyin: "rènzhēn", vietnamese: "nghiêm túc", example: "学习很认真。" },
+                    { chinese: "看", pinyin: "kàn", vietnamese: "xem xét", example: "您看她太极拳打得怎么样？" },
+                    { chinese: "为", pinyin: "wèi", vietnamese: "vì", example: "为学太极拳，她每天都起得很早。" },
+                    { chinese: "这么", pinyin: "zhème", vietnamese: "như vậy", example: "她怎么学得这么好？" },
+                    { chinese: "那么", pinyin: "nàme", vietnamese: "như thế", example: "那么，我们明天见。" },
+                    { chinese: "早", pinyin: "zǎo", vietnamese: "sớm", example: "她每天都起得很早。" },
+                    { chinese: "运动", pinyin: "yùndòng", vietnamese: "thể thao", example: "你喜欢什么运动？" },
+                    { chinese: "跑步", pinyin: "pǎo bù", vietnamese: "chạy bộ", example: "我喜欢跑步。" },
+                    { chinese: "跑", pinyin: "pǎo", vietnamese: "chạy", example: "他跑得很快。" },
+                    { chinese: "篮球", pinyin: "lángiú", vietnamese: "bóng rổ", example: "我喜欢打篮球。" },
+                    { chinese: "球", pinyin: "qiú", vietnamese: "quả bóng", example: "这是一个篮球。" },
+                    { chinese: "刚才", pinyin: "gāngcái", vietnamese: "vừa nãy", example: "刚才我看你跑得很快。" },
+                    { chinese: "可以", pinyin: "kěyǐ", vietnamese: "được", example: "打得还可以。" },
+                    { chinese: "坚持", pinyin: "jiānchí", vietnamese: "kiên trì", example: "我每天都坚持锻炼。" },
+                    { chinese: "因为", pinyin: "yīnwèi", vietnamese: "bởi vì", example: "因为我晚上常常睡得很晚。" },
+                    { chinese: "晚", pinyin: "wǎn", vietnamese: "muộn", example: "早上起得也很晚。" },
+                    // 补充词汇
+                    { chinese: "文章", pinyin: "wénzhāng", vietnamese: "bài văn", example: "他文章写得不错。" },
+                    { chinese: "摄影", pinyin: "shèyǐng", vietnamese: "nhiếp ảnh", example: "他喜欢摄影。" }
+                ]
+            }
+        };
+
+        // 全局变量
+        let currentLesson = 21;
+        let currentSection = "vocabulary";
+        let currentMode = "cn-to-vn";
+        let score = 0;
+        let currentQuestion = null;
+        let errorWords = JSON.parse(localStorage.getItem('errorWords')) || [];
+        let voices = [];
+        let currentVoice = null;
+        let speechRate = 1.0;
+        let speechPitch = 1.0;
+
+        // DOM 元素
+        const vocabularyList = document.getElementById('vocabulary-list');
+        const vocabularySection = document.getElementById('vocabulary-section');
+        const practiceSection = document.getElementById('practice-section');
+        const questionContainer = document.getElementById('question-container');
+        const optionsContainer = document.getElementById('options-container');
+        const scoreElement = document.getElementById('score');
+        const nextBtn = document.getElementById('next-btn');
+        const errorWordsList = document.getElementById('error-words-list');
+        const clearErrorsBtn = document.getElementById('clear-errors-btn');
+        const homeBtn = document.getElementById('home-btn');
+        const voiceSelect = document.getElementById('voice-select');
+        const speedControl = document.getElementById('speed-control');
+        const pitchControl = document.getElementById('pitch-control');
+        const speedValue = document.getElementById('speed-value');
+        const pitchValue = document.getElementById('pitch-value');
+        const lessonBtns = document.querySelectorAll('.lesson-btn');
+        const sectionBtns = document.querySelectorAll('.section-btn');
+        const modeBtns = document.querySelectorAll('.mode-btn');
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLesson(currentLesson);
+            setupGame();
+            setupAudio();
+            updateErrorWordsList();
+            
+            // 事件监听器
+            lessonBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    currentLesson = parseInt(this.dataset.lesson);
+                    loadLesson(currentLesson);
+                    
+                    // 更新活动按钮
+                    lessonBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            sectionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    currentSection = this.dataset.section;
+                    
+                    // 更新活动按钮
+                    sectionBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 显示/隐藏对应部分
+                    if (currentSection === 'vocabulary') {
+                        vocabularySection.classList.remove('hidden');
+                        practiceSection.classList.add('hidden');
+                    } else {
+                        vocabularySection.classList.add('hidden');
+                        practiceSection.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    currentMode = this.dataset.mode;
+                    
+                    // 更新活动按钮
+                    modeBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 生成新问题
+                    generateQuestion();
+                });
+            });
+            
+            nextBtn.addEventListener('click', generateQuestion);
+            clearErrorsBtn.addEventListener('click', clearErrorWords);
+            homeBtn.addEventListener('click', function() {
+                currentLesson = 21;
+                currentSection = "vocabulary";
+                loadLesson(currentLesson);
+                
+                // 更新活动按钮
+                lessonBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector(`.lesson-btn[data-lesson="21"]`).classList.add('active');
+                
+                sectionBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector(`.section-btn[data-section="vocabulary"]`).classList.add('active');
+                
+                // 显示词汇部分
+                vocabularySection.classList.remove('hidden');
+                practiceSection.classList.add('hidden');
+            });
+            
+            speedControl.addEventListener('input', function() {
+                speechRate = parseFloat(this.value);
+                speedValue.textContent = speechRate.toFixed(1);
+            });
+            
+            pitchControl.addEventListener('input', function() {
+                speechPitch = parseFloat(this.value);
+                pitchValue.textContent = speechPitch.toFixed(1);
+            });
+            
+            voiceSelect.addEventListener('change', function() {
+                const selectedIndex = this.selectedIndex;
+                if (selectedIndex > 0) {
+                    currentVoice = voices[selectedIndex - 1];
+                } else {
+                    currentVoice = null;
+                }
+            });
+        });
+
+        // 加载课程内容
+        function loadLesson(lessonNumber) {
+            const lesson = lessonData[lessonNumber];
+            
+            // 加载词汇
+            vocabularyList.innerHTML = '';
+            lesson.vocabulary.forEach(vocab => {
+                const vocabItem = document.createElement('div');
+                vocabItem.className = 'vocab-item';
+                vocabItem.innerHTML = `
+                    <div class="chinese-word">${vocab.chinese}</div>
+                    <div class="pinyin">${vocab.pinyin}</div>
+                    <div class="vietnamese">${vocab.vietnamese}</div>
+                    <div class="example">${vocab.example}</div>
+                    <button class="audio-btn" data-text="${vocab.chinese}">播放发音</button>
+                `;
+                vocabularyList.appendChild(vocabItem);
+            });
+            
+            // 为音频按钮添加事件监听器
+            document.querySelectorAll('.audio-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const text = this.dataset.text;
+                    speakText(text);
+                });
+            });
+            
+            // 更新游戏
+            setupGame();
+        }
+
+        // 设置游戏
+        function setupGame() {
+            score = 0;
+            scoreElement.textContent = score;
+            generateQuestion();
+        }
+
+        // 生成问题
+        function generateQuestion() {
+            const lesson = lessonData[currentLesson];
+            const vocabList = lesson.vocabulary;
+            
+            // 随机选择一个单词作为正确答案
+            const correctIndex = Math.floor(Math.random() * vocabList.length);
+            const correctVocab = vocabList[correctIndex];
+            
+            // 生成错误选项
+            const wrongOptions = [];
+            while (wrongOptions.length < 3) {
+                const randomIndex = Math.floor(Math.random() * vocabList.length);
+                if (randomIndex !== correctIndex && 
+                    !wrongOptions.some(opt => opt.chinese === vocabList[randomIndex].chinese)) {
+                    wrongOptions.push(vocabList[randomIndex]);
+                }
+            }
+            
+            // 合并选项并随机排序
+            const allOptions = [correctVocab, ...wrongOptions];
+            shuffleArray(allOptions);
+            
+            // 设置问题和选项
+            if (currentMode === "cn-to-vn") {
+                questionContainer.textContent = `Nghĩa Tiếng Việt của từ "${correctVocab.chinese}" là gì?`;
+                
+                optionsContainer.innerHTML = '';
+                allOptions.forEach(option => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.className = 'option-btn';
+                    optionBtn.textContent = option.vietnamese;
+                    optionBtn.addEventListener('click', function() {
+                        checkAnswer(option, correctVocab);
+                    });
+                    optionsContainer.appendChild(optionBtn);
+                });
+            } else {
+                questionContainer.textContent = `"${correctVocab.vietnamese}" trong Tiếng Trung có nghĩa là gì?`;
+                
+                optionsContainer.innerHTML = '';
+                allOptions.forEach(option => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.className = 'option-btn';
+                    optionBtn.textContent = option.chinese;
+                    optionBtn.addEventListener('click', function() {
+                        checkAnswer(option, correctVocab);
+                    });
+                    optionsContainer.appendChild(optionBtn);
+                });
+            }
+            
+            currentQuestion = {
+                correctVocab: correctVocab,
+                allOptions: allOptions
+            };
+        }
+
+        // 检查答案
+        function checkAnswer(selectedOption, correctVocab) {
+            const optionBtns = document.querySelectorAll('.option-btn');
+            
+            // 禁用所有选项按钮
+            optionBtns.forEach(btn => {
+                btn.disabled = true;
+            });
+            
+            // 找到正确和错误选项
+            optionBtns.forEach(btn => {
+                if (currentMode === "cn-to-vn") {
+                    if (btn.textContent === correctVocab.vietnamese) {
+                        btn.classList.add('correct');
+                    } else if (btn.textContent === selectedOption.vietnamese && selectedOption !== correctVocab) {
+                        btn.classList.add('incorrect');
+                    }
+                } else {
+                    if (btn.textContent === correctVocab.chinese) {
+                        btn.classList.add('correct');
+                    } else if (btn.textContent === selectedOption.chinese && selectedOption !== correctVocab) {
+                        btn.classList.add('incorrect');
+                    }
+                }
+            });
+            
+            // 更新分数和错题本
+            if (selectedOption === correctVocab) {
+                score++;
+                scoreElement.textContent = score;
+            } else {
+                // 添加到错题本
+                const errorWord = {
+                    chinese: correctVocab.chinese,
+                    pinyin: correctVocab.pinyin,
+                    vietnamese: correctVocab.vietnamese,
+                    lesson: currentLesson
+                };
+                
+                // 检查是否已经存在
+                const exists = errorWords.some(word => 
+                    word.chinese === errorWord.chinese && word.lesson === errorWord.lesson
+                );
+                
+                if (!exists) {
+                    errorWords.push(errorWord);
+                    localStorage.setItem('errorWords', JSON.stringify(errorWords));
+                    updateErrorWordsList();
+                }
+            }
+        }
+
+        // 更新错题本
+        function updateErrorWordsList() {
+            errorWordsList.innerHTML = '';
+            
+            if (errorWords.length === 0) {
+                errorWordsList.innerHTML = '<div>暂无错题</div>';
+                return;
+            }
+            
+            errorWords.forEach((word, index) => {
+                const errorItem = document.createElement('div');
+                errorItem.className = 'error-word-item';
+                errorItem.innerHTML = `
+                    <div>
+                        <strong>${word.chinese}</strong> (${word.pinyin}) - ${word.vietnamese}
+                        <span style="font-size: 0.8rem; color: #666;"> - 第${word.lesson}课</span>
+                    </div>
+                    <button class="audio-btn" data-text="${word.chinese}">播放</button>
+                `;
+                errorWordsList.appendChild(errorItem);
+            });
+            
+            // 为错题本中的音频按钮添加事件监听器
+            document.querySelectorAll('#error-words-list .audio-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const text = this.dataset.text;
+                    speakText(text);
+                });
+            });
+        }
+
+        // 清空错题本
+        function clearErrorWords() {
+            errorWords = [];
+            localStorage.setItem('errorWords', JSON.stringify(errorWords));
+            updateErrorWordsList();
+        }
+
+        // 设置音频
+        function setupAudio() {
+            // 获取可用语音
+            if ('speechSynthesis' in window) {
+                // 等待语音加载
+                speechSynthesis.onvoiceschanged = function() {
+                    voices = speechSynthesis.getVoices();
+                    populateVoiceList();
+                };
+                
+                // 立即尝试获取语音
+                voices = speechSynthesis.getVoices();
+                if (voices.length > 0) {
+                    populateVoiceList();
+                }
+            } else {
+                voiceSelect.innerHTML = '<option>您的浏览器不支持语音合成</option>';
+            }
+        }
+
+        // 填充语音列表
+        function populateVoiceList() {
+            voiceSelect.innerHTML = '';
+            
+            // 添加默认选项
+            const defaultOption = document.createElement('option');
+            defaultOption.textContent = '选择语音';
+            voiceSelect.appendChild(defaultOption);
+            
+            // 添加中文语音选项
+            const chineseVoices = voices.filter(voice => 
+                voice.lang.startsWith('zh') || voice.lang.startsWith('cmn')
+            );
+            
+            if (chineseVoices.length === 0) {
+                const noChineseOption = document.createElement('option');
+                noChineseOption.textContent = '未找到中文语音';
+                voiceSelect.appendChild(noChineseOption);
+            } else {
+                chineseVoices.forEach(voice => {
+                    const option = document.createElement('option');
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    voiceSelect.appendChild(option);
+                });
+                
+                // 默认选择第一个中文语音
+                currentVoice = chineseVoices[0];
+                voiceSelect.selectedIndex = 1;
+            }
+        }
+
+        // 语音合成
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) {
+                alert('您的浏览器不支持语音合成功能。');
+                return;
+            }
+            
+            // 停止当前语音
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // 设置语音参数
+            if (currentVoice) {
+                utterance.voice = currentVoice;
+            }
+            utterance.rate = speechRate;
+            utterance.pitch = speechPitch;
+            utterance.lang = 'zh-CN';
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // 辅助函数：随机打乱数组
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+    </script>
+</body>
+</html>
